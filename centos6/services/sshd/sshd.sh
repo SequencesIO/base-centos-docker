@@ -6,7 +6,7 @@ set -x
 SSHD_BUILD_PATH=/bd_build/services/sshd
 
 ## Install the SSH server.
-$minimal_apt_get_install openssh-server
+$minimal_yum_install openssh-server
 mkdir /var/run/sshd
 mkdir /etc/service/sshd
 touch /etc/service/sshd/down
