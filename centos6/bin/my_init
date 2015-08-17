@@ -261,23 +261,18 @@ def install_insecure_key():
 	run_command_killable("/usr/sbin/enable_insecure_key")
 
 def main(args):
-	print "Import env"
 	import_envvars(False, False)
-	print "export env"
 	export_envvars()
 
 	if args.enable_insecure_key:
-		print "install insecure"
 		install_insecure_key()
 
 	if not args.skip_startup_files:
-		print "run startup files"
 		run_startup_files()
 	
 	runit_exited = False
 	exit_code = None
 
-	print "start runit"
 	if not args.skip_runit:
 		runit_pid = start_runit()
 	try:
