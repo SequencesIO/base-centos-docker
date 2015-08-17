@@ -4,6 +4,7 @@ source /bd_build/buildconfig
 set -x
 
 ## Install init process.
+mkdir -p /sbin
 cp /bd_build/bin/my_init /sbin/
 mkdir -p /etc/my_init.d
 mkdir -p /etc/container_environment
@@ -17,7 +18,7 @@ chmod 640 /etc/container_environment.sh /etc/container_environment.json
 ln -s /etc/container_environment.sh /etc/profile.d/
 
 ## Install runit.
-$minimal_apt_get_install runit
+$minimal_yum_install /bd_build/runit-2.1.2-1.el7.centos.x86_64.rpm
 
 ## Install a syslog daemon and logrotate.
 [ "$DISABLE_SYSLOG" -eq 0 ] && /bd_build/services/syslog-ng/syslog-ng.sh || true

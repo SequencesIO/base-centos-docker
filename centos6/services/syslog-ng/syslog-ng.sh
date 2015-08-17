@@ -18,6 +18,7 @@ cp $SYSLOG_NG_BUILD_PATH/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 ## Install syslog to "docker logs" forwarder.
 mkdir /etc/service/syslog-forwarder
 cp $SYSLOG_NG_BUILD_PATH/syslog-forwarder.runit /etc/service/syslog-forwarder/run
+cp $SYSLOG_NG_BUILD_PATH/tty10.conf /usr/share/syslog-ng/include/scl/system/tty10.conf
 
 ## Install logrotate.
 $minimal_yum_install logrotate
