@@ -4,7 +4,7 @@ source /bd_build/buildconfig
 set -x
 
 ## Often used tools.
-$minimal_yum_install curl less vim-minimal psmisc
+$minimal_yum_install curl less vim-minimal psmisc python-argparse
 ln -s /usr/bin/vim.tiny /usr/bin/vim
 
 ## This tool runs a command as another user and sets $HOME.
