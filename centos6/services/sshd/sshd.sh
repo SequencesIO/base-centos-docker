@@ -14,6 +14,9 @@ cp $SSHD_BUILD_PATH/sshd.runit /etc/service/sshd/run
 cp $SSHD_BUILD_PATH/sshd_config /etc/ssh/sshd_config
 cp $SSHD_BUILD_PATH/00_regen_ssh_host_keys.sh /etc/my_init.d/
 
+## Update the PAM login so to be optional, or it won't allow key file logins
+sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd
+
 ## Install default SSH key for root and app.
 mkdir -p /root/.ssh
 chmod 700 /root/.ssh
